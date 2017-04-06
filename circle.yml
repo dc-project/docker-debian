@@ -11,4 +11,4 @@ dependencies:
     - mkdir -p /tmp/docker-debian;docker save --output /tmp/docker-debian/image.tar ysicing/debian
 test:
   override:
-    docker run -it ysicing/debian echo "Support Python3"
+    - docker run -it ysicing/debian echo "Support Python3"
