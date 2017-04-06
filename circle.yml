@@ -4,11 +4,11 @@ machine:
 dependencies:
   cache_directories:
     - "/tmp/docker-debian"
-    override:
-      - docker info
-      - if [[ -e /tmp/docker-debian/image.tar ]];then docker load --input /tmp/docker-debian/image.tar;fi
-      - docker build -t ysicing/debian .
-      - mkdir -p /tmp/docker-debian;docker save --output /tmp/docker-debian/image.tar ysicing/debian
+  override:
+    - docker info
+    - if [[ -e /tmp/docker-debian/image.tar ]];then docker load --input /tmp/docker-debian/image.tar;fi
+    - docker build -t ysicing/debian .
+    - mkdir -p /tmp/docker-debian;docker save --output /tmp/docker-debian/image.tar ysicing/debian
 test:
   override:
     docker run -it ysicing/debian echo "Support Python3"
