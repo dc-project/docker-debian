@@ -1,3 +1,4 @@
+[![Circle CI](https://circleci.com/gh/ysicing/docker-debian.svg?style=svg)](https://circleci.com/gh/ysicing/docker-debian)
 # About
 My Debian boilerplate image that forms the base for my docker containers.
 
