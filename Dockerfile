@@ -21,4 +21,5 @@ RUN \
         ca-certificates \
         unzip \
         apt-transport-https && \
+        apt upgrade -y && \
         rm -rf /var/lib/apt/lists/*
