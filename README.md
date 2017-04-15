@@ -1,14 +1,16 @@
-[![Circle CI](https://circleci.com/gh/ysicing/docker-debian.svg?style=svg)](https://circleci.com/gh/ysicing/docker-debian)
 # About
-My Debian boilerplate image that forms the base for my docker containers.
 
-Dockerfile to build a Debian:8(`sid-[mirrors ustc]`) baseimage with a couple of extra packages.
+Dockerfile to build a ubuntu:14.04 baseimage with a couple of extra packages.
 
- Extra packages && Main packages:
+The image is built on top of the most recently tagged `ubuntu:14.04` image and installs the following extra packages:
 
-- `python3`
-- `python3-apt`
-- `python3-pip`
-- `python3-dev`
-- `redis-server`
-- `libffi-dev`
+- `vim.tiny`
+- `wget`
+- `sudo`
+- `net-tools`
+- `ca-certificates`
+- `unzip`
+
+The packages are selected based on the criteria that they are commonly used and that they do not influence the size of the resulting image too much.
+
+Additionally `apt` is configured to **NOT** install `recommended` and `suggested` packages.

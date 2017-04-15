@@ -1,25 +1,9 @@
-FROM debian:8
-MAINTAINER YsiCing Zheng <root@ysicing.net>
+FROM ubuntu:trusty-20170214
+MAINTAINER info@goodrain.com
 
-# setting system
-ENV TZ "Asia/Shanghai"
-enV TERM xterm
-
-ADD sources.list /etc/apt/sources.list
-
-RUN \
-    DEBIAN_FRONTEND=noninteractive apt update && \
-    DEBIAN_FRONTEND=noninteractive apt install -y \
-        python3 \
-        python3-apt \
-        python3-pip \
-        python3-dev \
-        libffi-dev \
-        build-essential \
-        redis-server \
-        curl wget sudo nano \
-        ca-certificates \
-        unzip \
-        apt-transport-https && \
-        apt upgrade -y && \
-        rm -rf /var/lib/apt/lists/*
+RUN echo 'APT::Install-Recommends 0;' >> /etc/apt/apt.conf.d/01norecommends \
+ && echo 'APT::Install-Suggests 0;' >> /etc/apt/apt.conf.d/01norecommends \
+ && sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
+ && apt-get update \
+ && DEBIAN_FRONTEND=noninteractive apt-get install -y vim.tiny wget sudo net-tools ca-certificates unzip apt-transport-https \
+ && rm -rf /var/lib/apt/lists/*

@@ -3,12 +3,12 @@ machine:
     - docker
 dependencies:
   cache_directories:
-    - "/tmp/docker-debian"
+    - "~/docker-ubuntu"
   override:
     - docker info
-    - if [[ -e /tmp/docker-debian/image.tar ]];then docker load --input /tmp/docker-debian/image.tar;fi
-    - docker build -t ysicing/debian .
-    - mkdir -p /tmp/docker-debian;docker save --output /tmp/docker-debian/image.tar ysicing/debian
+    - if [[ -e ~/docker-ubuntu/image.tar ]]; then docker load --input ~/docker-ubuntu/image.tar; fi
+    - docker build -t hub.goodrain.com/ubuntu .
+    - mkdir -p ~/docker-ubuntu; docker save --output ~/docker-ubuntu/image.tar hub.goodrain.com/ubuntu
 test:
   override:
-    - docker run -it ysicing/debian echo "Support Python3"
+    - docker run -it hub.goodrain.com/ubuntu echo "Hello World"
