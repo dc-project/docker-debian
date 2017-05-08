@@ -12,3 +12,9 @@ Dockerfile to build a Debian:8(`sid-[mirrors ustc]`) baseimage with a couple of 
 - `python3-dev`
 - `redis-server`
 - `libffi-dev`
+
+# CMD
+
+```
+docker pull ysicing/debian
+```
