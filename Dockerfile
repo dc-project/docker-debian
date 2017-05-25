@@ -10,7 +10,7 @@ ADD sources.list /etc/apt/sources.list
 RUN \
     DEBIAN_FRONTEND=noninteractive apt update && \
     DEBIAN_FRONTEND=noninteractive apt install -y \
-        python3 \
+        python3.6 \
         python3-apt \
         python3-pip \
         python3-dev \
@@ -22,4 +22,5 @@ RUN \
         unzip \
         apt-transport-https && \
         apt upgrade -y && \
+	apt dist-upgrade -y && \
         rm -rf /var/lib/apt/lists/*
