@@ -13,7 +13,7 @@ RUN \
         python3.6 \
         python3-apt \
         python3-pip \
-        python3-dev \
+        python3.6-dev \
         libffi-dev \
         build-essential \
         redis-server \
